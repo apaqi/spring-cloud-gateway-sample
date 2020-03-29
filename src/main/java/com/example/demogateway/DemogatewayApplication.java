@@ -51,6 +51,11 @@ public class DemogatewayApplication {
 		//@formatter:on
 	}
 
+	/**
+	 * redis-rate-limiter.replenishRate：针对同一个key，允许的每秒请求数，不包括被抛弃的请求。这实际是令牌桶填充率。
+	 * redis-rate-limiter.burstCapacity：针对同一个key，一秒内允许的最大请求数。这实际是令牌桶可容纳的最大令牌数。若设为0，则拒绝所有请求。
+	 * @return
+	 */
 	@Bean
 	RedisRateLimiter redisRateLimiter() {
 		return new RedisRateLimiter(1, 2);

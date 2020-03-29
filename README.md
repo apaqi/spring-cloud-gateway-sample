@@ -1,4 +1,14 @@
 # Spring Cloud Gateway Sample
+中文文档
+https://cloud.tencent.com/developer/article/1403887
+
+https://www.jianshu.com/p/e1e5717049e8
+
+https://blog.csdn.net/netyeaxi/article/details/104382207?depth_1-utm_source=distribute.pc_relevant.none-task&utm_source=distribute.pc_relevant.none-task
+
+动态路由实现方式
+https://www.jianshu.com/p/8f007bcf36eahttps://www.jianshu.com/p/8f007bcf36ea
+https://blog.csdn.net/tianyaleixiaowu/article/details/83412301
 
 Sample that shows a few different ways to route and showcases some filters.
 

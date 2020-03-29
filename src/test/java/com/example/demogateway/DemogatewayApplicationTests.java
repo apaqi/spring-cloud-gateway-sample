@@ -85,6 +85,9 @@ public class DemogatewayApplicationTests {
 				.expectBody(String.class).isEqualTo("This is a fallback");
 	}
 
+	/**
+	 * TODO 一定要启动本地Redis
+	 */
 	@Test
 	public void rateLimiterWorks() {
 		WebTestClient authClient = client.mutate()
@@ -94,11 +97,15 @@ public class DemogatewayApplicationTests {
 		boolean wasLimited = false;
 
 		for (int i = 0; i < 20; i++) {
+			long begin = System.currentTimeMillis();
 			FluxExchangeResult<Map> result = authClient.get()
 					.uri("/anything/1")
 					.header("Host", "www.limited.org")
 					.exchange()
 					.returnResult(Map.class);
+			long end = System.currentTimeMillis();
+			//todo 算一个请求的大概耗时是多少毫秒
+			System.out.println("cost time=" + (end-begin));
 			if (result.getStatus().equals(HttpStatus.TOO_MANY_REQUESTS)) {
 				System.out.println("Received result: "+result);
 				wasLimited = true;
